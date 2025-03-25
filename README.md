@@ -1,44 +1,25 @@
-# project-3-
-Data Engineering Track Requirements (75 points)
-Database Design (40 points)
-The project uses ETL workflows to ingest data into the database. (10 points)
+#Database Engineering Project Utilizing Spotify API
 
-The original dataset(s) are transformed prior to storing it in the database. (5 points)
+#Overview
 
-A database is used to house the data (SQL, MongoDB, SQLite, etc.). (5 points)
+This project involves the design and engineering of a PostgreSQL database utilizing the Spotify API. Its primary goal is to facilitate music data analysis, including exploration of track metadata, user preferences, and playlist information. The database is structured to efficiently handle queries related to music patterns, trends, and personalized recommendations.
 
-The database has at least two tables (SQL) or collections (NoSQL). (5 points)
+#Interacting with the Database
 
-The project documents the choice of the database used and why. (5 points)
+Use provided SQL scripts in the /queries directory to perform common analyses.
 
-The project includes documentation of the ETL workflow with diagrams or ERD. (10 points)
+Custom queries can be created and executed through PostgreSQL client interfaces like psql or GUI tools such as pgAdmin.
 
-Data and Delivery (35 points)
-The database contains at least 100 unique records. (5 points)
+#Ethical Considerations
 
-The project uses one additional library not covered in class related to data engineering. (10 points)
+Careful ethical considerations were applied when interacting with the Spotify API. All data collected and stored in the database respects user privacy and adheres strictly to Spotify's API Terms of Service. Personal user data has been anonymized, and explicit consent mechanisms are in place where applicable. Data security measures, including restricted database access, have been implemented to prevent unauthorized usage.
 
-The project includes a method for reading data from the database and displaying it for future use, such as: (10 points)
+#Data Sources
 
-Pandas DataFrame
+Spotify Web API
 
-Flask API with JSON output
+#External Code References
 
-The GitHub repo has a README.md that includes the following: (10 points)
+Spotipy Library - Utilized for interaction with Spotify API.
 
-An overview of the project and its purpose
-
-Instructions on how to use and interact with the project
-
-At least one paragraph summarizing efforts for ethical considerations made in the project
-
-References for the data source(s)
-
-References for any code used that is not your own
-
-Both Track Requirements
-Group Presentation (25 points)
-All group members speak during the presentation. (5 points)
-The content is relevant to the project. (5 points)
-The presentation maintains audience interest. (5 points)
-Content, transitions, and conclusions flow smoothly within any time restrictions. (10 points)
+All code was written by Cade, Nick, Lauralee, and Prakash. ChatGPT assisted in writing of code, troubleshooting, and general restructuring of code. 
