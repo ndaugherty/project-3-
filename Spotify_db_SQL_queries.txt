@@ -1,0 +1,42 @@
+#1. Genre Popularity Over Time
+SELECT 
+    ag.genre,
+    EXTRACT(YEAR FROM t.release_date) AS year,
+    AVG(t.popularity) AS avg_popularity
+FROM tracks t
+JOIN track_artists ta ON t.track_id = ta.track_id
+JOIN artist_genres ag ON ta.artist_id = ag.artist_id
+WHERE t.popularity IS NOT NULL AND t.release_date IS NOT NULL
+GROUP BY ag.genre, year
+ORDER BY year, avg_popularity DESC;
+
+#2. Artist Popularity Over Time
+SELECT 
+    a.name AS artist,
+    EXTRACT(YEAR FROM t.release_date) AS year,
+    AVG(t.popularity) AS avg_track_popularity
+FROM artists a
+JOIN track_artists ta ON a.artist_id = ta.artist_id
+JOIN tracks t ON ta.track_id = t.track_id
+WHERE t.popularity IS NOT NULL AND t.release_date IS NOT NULL
+GROUP BY a.name, year
+ORDER BY year, avg_track_popularity DESC;
+
+#3. Correlation Between Song Length and Popularity
+SELECT 
+    duration_ms,
+    popularity
+FROM tracks
+WHERE popularity IS NOT NULL AND duration_ms > 0;
+
+#4. Do Popular Artists Make Popular Songs, or Vice Versa
+SELECT 
+    a.name,
+    a.popularity AS artist_popularity,
+    AVG(t.popularity) AS avg_track_popularity
+FROM artists a
+JOIN track_artists ta ON a.artist_id = ta.artist_id
+JOIN tracks t ON ta.track_id = t.track_id
+WHERE t.popularity IS NOT NULL
+GROUP BY a.name, a.popularity
+ORDER BY a.popularity DESC;
